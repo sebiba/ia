@@ -13,7 +13,7 @@ class Interface:
         screen.fill((235, 235, 235))
         gril = grille.Grille(size, step)
         gril.createTab("0")
-        self.finish = arrive.Arrive(screen, gril, 3, 2,int (step/2))
+        self.finish = arrive.Arrive(screen, gril, 2, 2,int (step/2))
         self.use = balle.Balle(screen, gril, 3, 2,int (step/2))
         gril.draw(pygame, screen)
 

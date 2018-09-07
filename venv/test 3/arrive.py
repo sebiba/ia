@@ -11,6 +11,5 @@ class Arrive:
         self.screen = screen
         self.grille = grille
         self.size = size
-        self.grille.setInTab(((y_cercle*10)+x_cercle),"1")
-        pygame.draw.polygon(self.screen, (level.get_at(red)), [(0, 33), (0, 43), (70, 43), (76, 33)], 0)
-        #pygame.draw.circle(self.screen, (0, 0, 255), (self.x_cercle * 40-20, self.y_cercle * 40-20), self.size)
+        self.grille.setInTab(((self.y_cercle*10)+self.x_cercle),"2")
+        pygame.draw.rect(self.screen, (255, 0, 0), [0+(self.x_cercle-1*40), 0+(self.y_cercle-1*40), self.x_cercle*40, self.y_cercle*40], 0)
