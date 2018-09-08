@@ -11,19 +11,19 @@ class Balle:
         self.screen = screen
         self.grille = grille
         self.size = size
-        self.grille.setInTab(((y_cercle*10)+x_cercle),"1")
+        self.grille.setInTab(((y_cercle*10)+x_cercle),"1") #positionner la balle dans la grille valeur 1
         pygame.draw.circle(self.screen, (0, 0, 255), (self.x_cercle * 40-20, self.y_cercle * 40-20), self.size)
 
     def moveUp(self):
-        if self.grille.getTab((((self.y_cercle-1)*10)+self.x_cercle)) == "0" and (((self.y_cercle-1)*10)+self.x_cercle) > 11:
+        if self.grille.getTab((((self.y_cercle-1)*10)+self.x_cercle)) == "0" and (((self.y_cercle-1)*10)+self.x_cercle) > 11: #si la case suppérieur est un 0 et qu'elle n'est pas hors champs
             pygame.draw.circle(self.screen, (0, 255, 0), (self.x_cercle * 40 - 20, self.y_cercle * 40 - 20), self.size)
             self.y_cercle -= 1
             self.grille.setInTab((((self.y_cercle)*10)+self.x_cercle),"1")
             pygame.draw.circle(self.screen, (0, 0, 255), (self.x_cercle * 40 - 20, self.y_cercle * 40 - 20), self.size)
 
     def moveDown(self):
-        try:
-            if self.grille.getTab((((self.y_cercle+1) * 10) + self.x_cercle)) == "0":
+        try: # except erreur d'index == sors de la grille
+            if self.grille.getTab((((self.y_cercle+1) * 10) + self.x_cercle)) == "0": #si la case en dessous est un 0
                 pygame.draw.circle(self.screen, (0, 255, 0), (self.x_cercle * 40 - 20, self.y_cercle * 40 - 20), self.size)
                 self.y_cercle += 1
                 self.grille.setInTab(((self.y_cercle * 10) + self.x_cercle), "1")
@@ -38,7 +38,7 @@ class Balle:
             pygame.draw.circle(self.screen, (0, 0, 255), (self.x_cercle * 40 - 20, self.y_cercle * 40 - 20), self.size)
 
     def moveRight(self):
-        try:
+        try: # except erreur d'index == sors de la grille
             if self.grille.getTab(((self.y_cercle * 10) + self.x_cercle+1)) == "0" and ((self.y_cercle * 10) + self.x_cercle)%10 != 0:
                 pygame.draw.circle(self.screen, (0, 255, 0), (self.x_cercle * 40 - 20, self.y_cercle * 40 - 20), self.size)
                 self.x_cercle += 1
